@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+}
+
+.register-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.register-container p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.input-group input,
+.input-group select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: rgb(37, 37, 216);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(25, 25, 180);
+}

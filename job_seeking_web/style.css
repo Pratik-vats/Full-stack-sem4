@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: cursive;
+    background-color: beige;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(37, 37, 216);
+    color: white;
+    padding: 15px 40px;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.search {
+    padding: 30px;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.search-form input,
+.search-form select,
+.search-form button {
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.jobs {
+    padding: 30px;
+}
+
+.job-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.job-card a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.footer {
+    background: #222;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.center-title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.center-title h1 {
+    margin-bottom: 5px;
+}
+
+.center-title h3 {
+    margin-top: 0;
+    font-weight: normal;
+}
