@@ -25,9 +25,9 @@
     <hr>
 
     <nav>
-        <a href="https://github.com/PratikVats24bcs10343">Github</a>
-        <a href="https://leetcode.com/u/pratik_vats_05/">Leetcode</a>
-        <a href="https://www.linkedin.com/in/pratik-vats-a81587329/">LinkedIn</a>
+        <a href="https://github.com/Pratik-vats" target="_blank">Github</a>
+        <a href="https://leetcode.com/u/pratik_vats_05/" target="_blank">Leetcode</a>
+        <a href="https://www.linkedin.com/in/pratik-vats-a81587329/" target="_blank">LinkedIn</a>
     </nav>
 
     <hr>
@@ -73,29 +73,28 @@
         <hr>
 
         <section class="skills">
+
             <h2>SKILLS</h2>
+            <div class="skilltype">
+                <h4>Programming Languages : </h4><br>
+                <div class="skillcard">C++</div>
+                <div class="skillcard">C</div>
+                <div class="skillcard">Python</div>
+                <div class="skillcard">JAVA</div>
+                <div class="skillcard">JAVASCRIPT</div>
+            </div>
+            <div class="skilltype">
+                <h4>Web Technologies : </h4>
+                <div class="skillcard">HTML</div>
+                <div class="skillcard">CSS</div>
+            </div>
+            <div class="skilltype">
+                <h4>Database : </h4>
+                <div class="skillcard">MySQL</div>
+                <div class="skillcard">CSS</div>
+            </div>
 
-            <h4>Programming Languages</h4>
-            <ol>
-                <li>C</li>
-                <li>C++</li>
-                <li>Java</li>
-                <li>Python</li>
-            </ol>
-
-            <h4>Web Technologies</h4>
-            <ol>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ol>
-
-            <h4>Database</h4>
-            <ol>
-                <li>MySQL</li>
-            </ol>
         </section>
-
 
         <hr>
 
@@ -153,26 +152,30 @@
             <h2>Contact Me</h2>
 
             <form>
-                <label for="name">Name</label> ::
-                <input type="text" id="name" name="username" required placeholder="Name">
-                <br><br>
+                <fieldset class="contactme">
 
-                <label for="email">Email</label> ::
-                <input type="email" id="email" name="user_mail" required placeholder="Email">
-                <br><br>
+                    <label>
+                        <b>Name :</b>
+                        <input type="text" name="name" placeholder="Name">
+                    </label><br><br>
+                    <label>
+                        <b>Email : </b>
+                        <input type="email" name="email" placeholder="Email">
+                    </label><br><br>
+                    <label>
+                        <b>Reason :</b>
+                        <select id="reason" name="reason">
+                            <option value="Job">For Job Opportunity</option>
+                            <option value="Internship">For Internship</option>
+                            <option value="Collaboration">For Collaboration</option>
+                        </select>
+                    </label><br><br>
+                    <label>
+                        <b>Review :</b>
+                        <textarea name="review" placeholder="Enter your message..."></textarea>
+                    </label><br><br>
 
-                <label for="reason">Reason</label> ::
-                <select id="reason" name="reason">
-                    <option value="Job">For Job Opportunity</option>
-                    <option value="Internship">For Internship</option>
-                    <option value="Collaboration">For Collaboration</option>
-                </select>
-                <br><br>
-
-                <label for="review">Review</label> ::
-                <textarea id="review" name="review" placeholder="Write your message..."></textarea>
-                <br><br>
-
+                </fieldset>
                 <button type="submit">Submit</button>
             </form>
         </section>

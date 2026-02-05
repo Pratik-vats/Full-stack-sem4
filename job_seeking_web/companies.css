@@ -1,41 +1,231 @@
-body {
+* {
     margin: 0;
-    background: beige;
-    font-family: cursive;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary: #2563eb;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --bg: #f5f7fa;
+    --dark: #111827;
+    --text: #222;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-option {
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.navbar a.nav-option {
+    background: var(--primary);
+    color: white;
+}
+
+.navbar a.nav-option:hover {
+    background: #1d4ed8;
+}
+
+#companySearchInput {
+    flex: 1;
+    min-width: 180px;
+    border: 1px solid var(--border);
+}
+
+#companySearchInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+#searchBtn {
+    background: var(--success);
+    color: white;
+    cursor: pointer;
+}
+
+#searchBtn:hover {
+    background: #16a34a;
+}
+
+.post-job-section {
+    padding: 28px 22px;
+    background: #ffffff;
+    margin: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.post-job-section h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.post-job-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.post-job-form input {
+    padding: 11px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    flex: 1;
+    min-width: 180px;
+    font-size: 14px;
+}
+
+.post-job-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.post-job-form button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.post-job-form button:hover {
+    background: #1d4ed8;
+}
+
+.post-job-form button:active {
+    transform: scale(0.97);
 }
 
 .companies-section {
-    padding: 40px;
-    text-align: center;
+    padding: 20px;
+}
+
+.companies-section h2 {
+    margin-bottom: 16px;
+    font-size: 22px;
 }
 
 .company-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
 }
 
 .company-card {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
+    padding: 16px 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
 }
 
 .company-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    border-color: var(--border);
 }
 
 .company-card h3 {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-size: 18px;
 }
 
-.company-card a {
-    display: inline-block;
-    margin-top: 10px;
+.company-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.apply-btn {
+    flex: 1;
+    text-align: center;
+    padding: 9px 0;
+    background: var(--success);
+    color: white;
+    border-radius: 8px;
     text-decoration: none;
-    color: rgb(37, 37, 216);
-    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.apply-btn:hover {
+    background: #16a34a;
+}
+
+.apply-btn:active {
+    transform: scale(0.97);
+}
+
+.delete-btn {
+    flex: 1;
+    padding: 9px 0;
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.delete-btn:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .post-job-form {
+        flex-direction: column;
+    }
+
+    .post-job-section {
+        margin: 12px;
+    }
 }
