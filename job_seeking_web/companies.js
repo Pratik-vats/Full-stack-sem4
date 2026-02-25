@@ -1,59 +1,114 @@
 const postJobBtn = document.querySelector("#postJobBtn");
 const companyGrid = document.querySelector("#companyGrid");
 const jobCount = document.querySelector("#jobCount");
-
 const companyNameInput = document.querySelector("#companyNameInput");
 const companyFieldInput = document.querySelector("#companyFieldInput");
+const formError = document.querySelector("#formError");
+
+const searchInput = document.querySelector("#companySearchInput");
+const searchBtn = document.querySelector("#searchBtn");
 
 function updateJobCount() {
-    const totalJobs = companyGrid.querySelectorAll(".company-card").length;
-    jobCount.textContent = `Total Jobs: ${totalJobs}`;
+    const total = companyGrid.querySelectorAll(".company-card").length;
+    jobCount.textContent = `Total Jobs: ${total}`;
 }
 
-postJobBtn.addEventListener("click", function () {
-    const companyName = companyNameInput.value.trim();
-    const companyField = companyFieldInput.value.trim();
+function handleApply(button) {
+    if (button.dataset.applied === "false") {
+        button.textContent = "Applied";
+        button.dataset.applied = "true";
+        button.style.pointerEvents = "none";
+        button.style.opacity = "0.6";
+    }
+}
 
-    if (companyName === "" || companyField === "") {
-        alert("Please fill all fields!");
+function handleDelete(card) {
+    card.remove();
+    updateJobCount();
+}
+
+function attachCardEvents(card) {
+    const applyBtn = card.querySelector(".apply-btn");
+    const deleteBtn = card.querySelector(".delete-btn");
+
+    applyBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        handleApply(applyBtn);
+    });
+
+    deleteBtn.addEventListener("click", function () {
+        handleDelete(card);
+    });
+}
+
+document.querySelectorAll(".company-card").forEach(card => {
+    attachCardEvents(card);
+});
+
+postJobBtn.addEventListener("click", function () {
+
+    const name = companyNameInput.value.trim();
+    const field = companyFieldInput.value.trim();
+
+    if (name === "" || field === "") {
+        formError.textContent = "Please fill all fields!";
         return;
     }
 
+    formError.textContent = "";
+
     const card = document.createElement("div");
     card.classList.add("company-card");
+    card.setAttribute("data-company", name);
 
     card.innerHTML = `
-        <h3>${companyName}</h3>
-        <p>${companyField}</p>
+        <h3>${name}</h3>
+        <p>${field}</p>
         <div class="card-actions">
-            <a href="#" class="apply-btn">Apply</a>
+            <a href="#" class="apply-btn" data-applied="false">Apply</a>
             <button class="delete-btn">Delete</button>
         </div>
     `;
 
     companyGrid.appendChild(card);
-
-    const deleteBtn = card.querySelector(".delete-btn");
-    const applyBtn = card.querySelector(".apply-btn");
-
-    deleteBtn.addEventListener("click", function () {
-        card.remove();
-        updateJobCount();
-    });
-
-    applyBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        applyBtn.textContent = "Applied";
-        applyBtn.style.pointerEvents = "none";
-        applyBtn.style.opacity = "0.7";
-    });
+    attachCardEvents(card);
 
     companyNameInput.value = "";
     companyFieldInput.value = "";
-    companyNameInput.focus();
 
     updateJobCount();
+});
+
+function searchCompany() {
+    const searchValue = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".company-card");
+
+    let found = false;
+
+    cards.forEach(card => {
+        const companyName = card.dataset.company.toLowerCase();
+
+        if (companyName.includes(searchValue)) {
+            card.style.display = "block";
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    if (!found && searchValue !== "") {
+        jobCount.textContent = "No company found";
+    } else {
+        updateJobCount();
+    }
+}
+
+searchBtn.addEventListener("click", searchCompany);
+
+searchInput.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+        searchCompany();
+    }
 });
 
 updateJobCount();
