@@ -1,0 +1,20 @@
+Objective -1 
+
+Create a Student Task Manager Web Application that allows users to add, complete, filter, and delete tasks.
+
+Task Input Section 
+
+Task name input	
+
+Priority dropdown (Low / Medium / High)
+
+Add Task button
+
+Filter Section
+
+Show All
+
+Completed@
+
+Pending
+
