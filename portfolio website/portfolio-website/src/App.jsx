@@ -1,17 +1,7 @@
-import Navbar from "./navbar.jsx";
-import Education from "./Education.jsx";
-import Project from "./project.jsx";
-import Contact from "./contact.jsx";
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Education />
-      <Project />
-      <Contact />
-    </>
-  );
+  return <Home />;
 }
 
 export default App;
