@@ -1,0 +1,15 @@
+we have to craete 4 folder always in spring boot
+1. controller  -  create REST api
+2. service  -  bussiness login
+3. repository  -  database operation  , we dont have to write database code , sprinboot has inbuilt framework for it (Hibernate tool - it perform databse operation without witing queries) 
+
+ORM tool - it is basically a translator , it convert java code into queries
+
+
+4. model  -   we define table schema
+
+
+get
+put
+post
+
